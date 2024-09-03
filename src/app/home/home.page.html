@@ -2,14 +2,14 @@
 
   <ion-header>
     <ion-toolbar color="warning">
-      <ion-title class="titulos">Footer</ion-title>
+      <ion-title class="titulos">Pag principal</ion-title>
     </ion-toolbar>
   </ion-header>
 
 
   <ion-content>
 
-    <h1 class="titulos">hola soy un h1</h1>
+    <h1 class="titulos">Usuario</h1>
     <ion-item>
       <ion-input type="text" label="Nombre" [(ngModel)]="nombre" name="nombre" placeholder="Ingrese un nombre"></ion-input>
     </ion-item>
@@ -20,6 +20,9 @@
 
     <ion-button routerLink="/pagina1">
       Sig. pag
+    </ion-button>
+    <ion-button [routerLink]="['/animaciones']" expand="block" fill="clear" shape="round">
+      Animaciones
     </ion-button>
 
 
