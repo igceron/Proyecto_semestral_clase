@@ -1,15 +1,11 @@
 <ion-app>
 
-  <ion-header>
-    <ion-toolbar color="warning">
-      <ion-title class="titulos">Pag principal</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <app-header [titulo]="'Pag principal'"></app-header>
 
 
   <ion-content>
 
-    <h1 class="titulos">Usuario</h1>
+    <h1 class="titulos">Bienvenido {{nombreUsuario}}</h1>
     <ion-item>
       <ion-input type="text" label="Nombre" [(ngModel)]="nombre" name="nombre" placeholder="Ingrese un nombre"></ion-input>
     </ion-item>
