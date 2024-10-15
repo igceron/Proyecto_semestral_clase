@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
+import { Camera,CameraResultType,CameraSource } from '@capacitor/camera'
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+defineCustomElements(window);
+import { Geolocation } from '@capacitor/geolocation';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +19,23 @@ export class LoginPage implements OnInit {
 
   constructor(public mensaje:ToastController,public alerta:AlertController, private router:Router, private storage : Storage) { }
 
+  async tomarFoto(){
+    const image = await Camera.getPhoto({
+      resultType: CameraResultType.Uri,
+      source:CameraSource.Camera,
+      quality:100
+    });
+    console.log(image.webPath)
+  }
+
+  async obtenerUbicacion(){
+    const coordenadas = await Geolocation.getCurrentPosition();
+    console.log('Latitud ==>', coordenadas.coords.latitude);
+    console.log('Longitud ==>', coordenadas.coords.longitude);
+  }
+  
+  
+  
   async MensajeError() {
     const alert = await this.alerta.create({
       header: 'Error',
